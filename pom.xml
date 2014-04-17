@@ -10,8 +10,15 @@
 	<properties>
 		<java-version>1.7</java-version>
 		<org.springframework-version>4.0.0.RELEASE</org.springframework-version>
-		<org.aspectj-version>1.6.9</org.aspectj-version>
-		<org.slf4j-version>1.5.10</org.slf4j-version>
+		<org.aspectj-version>1.7.2</org.aspectj-version>
+     	<spring-data-jpa.version>1.4.1.RELEASE</spring-data-jpa.version>
+     	<spring-security.version>3.2.0.RELEASE</spring-security.version>
+     	<hibernate.version>4.2.0.Final</hibernate.version>
+		<junit.version>4.11</junit.version> 
+        <slf4j.version>1.7.5</slf4j.version>
+		<jackson-json.version>2.3.1</jackson-json.version> 
+        <commons-dbcp.version>1.2.2</commons-dbcp.version>
+        <querydsl.version>3.3.2</querydsl.version>
 	</properties>
 	
 	<repositories>
@@ -36,6 +43,11 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
+		
+	    <repository>	
+	      <id>codelds</id>
+	      <url>https://code.lds.org/nexus/content/groups/main-repo</url>
+	    </repository>
 	</repositories>
 	
 	<dependencies>
@@ -95,12 +107,72 @@
 			<version>${org.springframework-version}</version>
         </dependency>
 		
+		<dependency>
+   			<groupId>org.javassist</groupId>
+   			<artifactId>javassist</artifactId>
+   			<version>3.18.1-GA</version>
+		</dependency>
+		
 		<!-- validator -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
-			<version>4.2.0.Final</version>
+			<version>${hibernate.version}</version>
 		</dependency>
+        <dependency> 
+            <groupId>org.springframework.data</groupId> 
+            <artifactId>spring-data-jpa</artifactId> 
+            <version>${spring-data-jpa.version}</version> 
+        </dependency> 
+        <dependency> 
+            <groupId>org.hibernate</groupId> 
+            <artifactId>hibernate-entitymanager</artifactId> 
+            <version>${hibernate.version}</version> 
+        </dependency>
+        
+        <!-- query dsl -->
+	    <dependency>
+	      <groupId>com.mysema.querydsl</groupId>
+	      <artifactId>querydsl-core</artifactId>
+	      <version>${querydsl.version}</version>
+	    </dependency>
+	    <dependency>
+	      <groupId>com.mysema.querydsl</groupId>
+	      <artifactId>querydsl-apt</artifactId>
+	      <version>${querydsl.version}</version>
+	    </dependency>
+	    <dependency>
+	      <groupId>com.mysema.querydsl</groupId>
+	      <artifactId>querydsl-jpa</artifactId>
+	      <version>${querydsl.version}</version>
+	    </dependency>
+	    <dependency>
+	      <groupId>com.mysema.querydsl</groupId>
+	      <artifactId>querydsl-sql</artifactId>
+	      <version>${querydsl.version}</version>
+	    </dependency>
+		
+       <!-- SpringSecurity dependencies --> 
+        <dependency> 
+            <groupId>org.springframework.security</groupId> 
+            <artifactId>spring-security-core</artifactId> 
+            <version>${spring-security.version}</version> 
+        </dependency> 
+        <dependency> 
+            <groupId>org.springframework.security</groupId> 
+            <artifactId>spring-security-web</artifactId> 
+            <version>${spring-security.version}</version> 
+        </dependency> 
+        <dependency> 
+            <groupId>org.springframework.security</groupId> 
+            <artifactId>spring-security-config</artifactId> 
+            <version>${spring-security.version}</version> 
+        </dependency> 
+        <dependency> 
+            <groupId>org.springframework.security</groupId> 
+            <artifactId>spring-security-taglibs</artifactId> 
+            <version>${spring-security.version}</version> 
+        </dependency>  
 		
 		<!-- eGov -->
 		<dependency>
@@ -108,31 +180,26 @@
 			<artifactId>egovframework.rte.fdl.cmmn</artifactId>
 			<version>2.0.0</version>
 		</dependency>
-		
 		<dependency>
 			<groupId>egovframework.rte</groupId>
 			<artifactId>egovframework.rte.ptl.mvc</artifactId>
 			<version>2.0.0</version>
 		</dependency>
-		
 		<dependency>
 			<groupId>egovframework.rte</groupId>
 			<artifactId>egovframework.rte.psl.dataaccess</artifactId>
 			<version>2.6.0</version>
 		</dependency>
-        
 		<dependency>
 			<groupId>egovframework.rte</groupId>
 			<artifactId>egovframework.rte.fdl.idgnr</artifactId>
 			<version>2.0.0</version>
 		</dependency>
-        
        	<dependency>
 			<groupId>egovframework.rte</groupId>
 			<artifactId>egovframework.rte.fdl.property</artifactId>  
 			<version>2.0.0</version>
 		</dependency>
-		
 		
 		<!-- AspectJ -->
 		<dependency>
@@ -140,62 +207,66 @@
 			<artifactId>aspectjrt</artifactId>
 			<version>${org.aspectj-version}</version>
 		</dependency>	
-		
-    <dependency>
-			<groupId>org.aspectj</groupId>
-			<artifactId>aspectjweaver</artifactId>
-			<version>1.6.11</version>
-    </dependency>
-
-    <dependency>
-		  <groupId>aopalliance</groupId>
-		  <artifactId>aopalliance</artifactId>
-		  <version>1.0</version>
-    </dependency>
+	    <dependency>
+				<groupId>org.aspectj</groupId>
+				<artifactId>aspectjweaver</artifactId>
+				<version>1.6.11</version>
+	    </dependency>
+	    <dependency>
+			  <groupId>aopalliance</groupId>
+			  <artifactId>aopalliance</artifactId>
+			  <version>1.0</version>
+	    </dependency>
+ 
+ 		<!-- jdk 1.7 -->
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>11.2.0.3</version>
+		</dependency>
  
 		<!-- Logging -->
-     <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-api</artifactId>
-        <version>1.6.6</version>
-    </dependency>
-    
-    <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>jcl-over-slf4j</artifactId>
-        <version>1.6.6</version>
-        <scope>runtime</scope>
-    </dependency>
-    <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-log4j12</artifactId>
-        <version>1.6.6</version>
-        <scope>runtime</scope>
-    </dependency>
-    <dependency>
-        <groupId>log4j</groupId>
-        <artifactId>log4j</artifactId>
-        <version>1.2.15</version>
-        <exclusions>
-            <exclusion>
-                <groupId>javax.mail</groupId>
-                <artifactId>mail</artifactId>
-            </exclusion>
-            <exclusion>
-                <groupId>javax.jms</groupId>
-                <artifactId>jms</artifactId>
-            </exclusion>
-            <exclusion>
-                <groupId>com.sun.jdmk</groupId>
-                <artifactId>jmxtools</artifactId>
-            </exclusion>
-            <exclusion>
-                <groupId>com.sun.jmx</groupId>
-                <artifactId>jmxri</artifactId>
-            </exclusion>
-        </exclusions>
-        <scope>runtime</scope>
-    </dependency>
+	     <dependency>
+	        <groupId>org.slf4j</groupId>
+	        <artifactId>slf4j-api</artifactId>
+	        <version>${slf4j.version}</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.slf4j</groupId>
+	        <artifactId>jcl-over-slf4j</artifactId>
+	        <version>1.6.6</version>
+	        <scope>runtime</scope>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.slf4j</groupId>
+	        <artifactId>slf4j-log4j12</artifactId>
+	        <version>1.6.6</version>
+	        <scope>runtime</scope>
+	    </dependency>
+	    <dependency>
+	        <groupId>log4j</groupId>
+	        <artifactId>log4j</artifactId>
+	        <version>1.2.15</version>
+	        <exclusions>
+	            <exclusion>
+	                <groupId>javax.mail</groupId>
+	                <artifactId>mail</artifactId>
+	            </exclusion>
+	            <exclusion>
+	                <groupId>javax.jms</groupId>
+	                <artifactId>jms</artifactId>
+	            </exclusion>
+	            <exclusion>
+	                <groupId>com.sun.jdmk</groupId>
+	                <artifactId>jmxtools</artifactId>
+	            </exclusion>
+	            <exclusion>
+	                <groupId>com.sun.jmx</groupId>
+	                <artifactId>jmxri</artifactId>
+	            </exclusion>
+	        </exclusions>
+	        <scope>runtime</scope>
+	    </dependency>
 
 		<!-- @Inject -->
 		<dependency>
@@ -211,18 +282,17 @@
 			<version>3.0.1</version>
 			<scope>provided</scope>
 		</dependency> 
-		
-	  <dependency>
-	      <groupId>javax.servlet</groupId>
-	      <artifactId>jstl</artifactId>
-	      <version>1.2</version>
-	  </dependency>
-		
+		<dependency>
+		    <groupId>javax.servlet</groupId>
+		    <artifactId>jstl</artifactId>
+		    <version>1.2</version>
+		</dependency>
 		<dependency>
 			<groupId>taglibs</groupId>
 			<artifactId>standard</artifactId>
 			<version>1.1.2</version>
 		</dependency>
+		
 		<!--  Xml Format -->
 		<dependency>
 			<groupId>jdom</groupId>
@@ -230,37 +300,39 @@
 			<version>1.0</version>
 		</dependency>
 		
+		<!-- jackson -->
+		<dependency> 
+			<groupId>com.fasterxml.jackson.core</groupId> 
+			<artifactId>jackson-databind</artifactId> 
+			<version>${jackson-json.version}</version> 
+		</dependency> 
+		
 		<!--  apache common -->
-	  <dependency>
+		<dependency>
 			<groupId>commons-dbcp</groupId>
 			<artifactId>commons-dbcp</artifactId>
 			<version>1.3</version>
-	  </dependency>
-	
-	  <dependency>
+		</dependency>
+		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
 			<version>1.4</version>
-	  </dependency>
-	
-	  <dependency>
+		</dependency>
+		<dependency>
 			<groupId>commons-beanutils</groupId>
 			<artifactId>commons-beanutils</artifactId>
 			<version>1.8.3</version>
-	  </dependency>
-	  
-	  <dependency>
-		  <groupId>commons-lang</groupId>
-		  <artifactId>commons-lang</artifactId>
-		  <version>2.6</version>
-	  </dependency>
-          
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
+		</dependency>
 		<dependency>
 			<groupId>commons-digester</groupId>
 			<artifactId>commons-digester</artifactId>
 			<version>1.8</version>
 		</dependency>
-         
 		<dependency>
 			<groupId>commons-collections</groupId>
 			<artifactId>commons-collections</artifactId>
@@ -284,7 +356,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.7</version>
+			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -292,8 +364,8 @@
 			<artifactId>log4jdbc-remix</artifactId>
 			<version>0.2.7</version>
 		</dependency> 
-
 	</dependencies>
+	
     <build>
         <plugins>
             <plugin>
@@ -315,8 +387,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.3.2</version>
                 <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <source>1.7</source>
+                    <target>1.7</target>
                     <encoding>UTF-8</encoding>
                     <compilerArgument>-Xlint:all</compilerArgument>
                     <showWarnings>true</showWarnings>

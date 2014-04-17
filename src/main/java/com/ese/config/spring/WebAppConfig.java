@@ -7,13 +7,11 @@ import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.servlet.ViewResolver;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 
 @ComponentScan(basePackages="com.ese.demo", useDefaultFilters=false, includeFilters={@Filter(Controller.class)})
-@EnableWebMvc
 @Configuration
 public class WebAppConfig  {
 	
@@ -28,6 +26,7 @@ public class WebAppConfig  {
 	 */
 	@Bean
 	public ViewResolver viewResolver()  {
+		
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
 		
 		viewResolver.setViewClass(JstlView.class);
