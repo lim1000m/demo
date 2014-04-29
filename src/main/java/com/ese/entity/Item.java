@@ -6,6 +6,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.annotations.Index;
+
+import com.ese.config.validation.Eng;
 
 /**
  * An item in an order
@@ -13,17 +18,22 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Item {
 
+	@Index(name="id_index")
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private int id;
 
 	@ManyToOne
 	private Order order;
 
+	@NotNull
+	@Eng
 	private String product;
 
-	private double price;
+	@NotNull
+	private int price;
 
+	@NotNull
 	private int quantity;
 
 	/**
@@ -51,7 +61,7 @@ public class Item {
 	/**
 	 * @return the price
 	 */
-	public double getPrice() {
+	public int getPrice() {
 		return price;
 	}
 
@@ -59,7 +69,7 @@ public class Item {
 	 * @param price
 	 *            the price to set
 	 */
-	public void setPrice(double price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 
@@ -81,8 +91,16 @@ public class Item {
 	/**
 	 * @return the id
 	 */
-	public Long getId() {
+	public int getId() {
 		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setOrder(Order order) {
+		this.order = order;
 	}
 
 }

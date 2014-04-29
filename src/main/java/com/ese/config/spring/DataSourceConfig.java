@@ -1,12 +1,8 @@
 package com.ese.config.spring;
 
 
-import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.Properties;
-
 import javax.sql.DataSource;
-
 import org.apache.commons.dbcp.BasicDataSource;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +20,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement
 @PropertySource(value={"classpath:demo/properties/application.properties"})
-@ComponentScan("com.ese.*.service.impl")
+@ComponentScan("com.ese.**.service.impl")
 public class DataSourceConfig {
 
 	@Autowired
@@ -32,6 +28,9 @@ public class DataSourceConfig {
 	
 	@Value("${init-db:false}")
 	private String initDatabase;
+	
+	@Autowired
+	public SessionFactory sessionFactory;
 	
 	@Bean
 	public DataSource dataSource() {
@@ -41,49 +40,40 @@ public class DataSourceConfig {
 		dataSource.setUsername(env.getProperty("jdbc.username"));
 		dataSource.setPassword(env.getProperty("jdbc.password"));
 		
-		System.out.println(env.getProperty("jdbc.driverClassName"));
-		System.out.println(env.getProperty("jdbc.url"));
-		System.out.println(env.getProperty("jdbc.username"));
-		System.out.println(env.getProperty("jdbc.password"));
-		
 		return dataSource;
 	}
 	
-	   @Bean
-	   public LocalSessionFactoryBean sessionFactory()  {
-	      LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
-	      sessionFactory.setDataSource(dataSource());
-	      sessionFactory.setPackagesToScan(new String[] { "com.ese.entity" });
-	      sessionFactory.setHibernateProperties(hibernateProperties());
-	 
-	      return sessionFactory;
-	   }
-
-   
-	   @Bean
-	   @Autowired
-	   public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
-	      HibernateTransactionManager txManager = new HibernateTransactionManager();
-	      txManager.setSessionFactory(sessionFactory);
-	 
-	      return txManager;
-	   }
-	 
-	   @Bean
-	   public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
-	      return new PersistenceExceptionTranslationPostProcessor();
-	   }
-
-   
-   @SuppressWarnings("serial")
-Properties hibernateProperties() {
-	      return new Properties() {
-	         {
-	            setProperty("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
-	            setProperty("hibernate.dialect", env.getProperty("hibernate.dialect"));
-	            setProperty("hibernate.globally_quoted_identifiers", "true");
-	         }
-	      };
-	   }
-
+	@Bean
+	public LocalSessionFactoryBean sessionFactory()  {
+		LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
+		sessionFactory.setDataSource(dataSource());
+		sessionFactory.setPackagesToScan(new String[] { "com.ese.entity" });
+		sessionFactory.setHibernateProperties(hibernateProperties());
+		return sessionFactory;
+	}
+		   
+	@Bean
+	@Autowired
+	public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
+		HibernateTransactionManager txManager = new HibernateTransactionManager();
+		txManager.setSessionFactory(sessionFactory);
+		return txManager;
+	}
+		 	
+	@Bean
+	public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
+		return new PersistenceExceptionTranslationPostProcessor();
+	}
+	
+	@SuppressWarnings("serial")
+	Properties hibernateProperties() {
+		return new Properties() {
+			{
+				setProperty("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
+				setProperty("hibernate.dialect", env.getProperty("hibernate.dialect"));
+				setProperty("hibernate.globally_quoted_identifiers", env.getProperty("hibernate.globally_quoted_identifiers"));
+				setProperty("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
+			}
+		};
+	}
 }

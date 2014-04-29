@@ -18,9 +18,10 @@ import org.springframework.stereotype.Controller;
 @EnableAspectJAutoProxy
 @EnableCaching
 public class AppConfig  {
-
+	
 	/**
-	 * ${...} 랑 @Value같은걸 사용하게 해줌
+	 * When the get the property message from the property file
+	 * it's available to use the express such as ${...} @Value
 	 * @author ESE-MILLER
 	 * @category Method
 	 * @return
@@ -40,4 +41,5 @@ public class AppConfig  {
 	public CacheManager cacheManager() {
 		return new ConcurrentMapCacheManager();
 	}
+	
 }
