@@ -57,6 +57,7 @@ public class DataSourceConfig {
 	public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
 		HibernateTransactionManager txManager = new HibernateTransactionManager();
 		txManager.setSessionFactory(sessionFactory);
+		txManager.setRollbackOnCommitFailure(true);
 		return txManager;
 	}
 		 	

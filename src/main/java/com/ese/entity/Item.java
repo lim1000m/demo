@@ -1,15 +1,14 @@
 package com.ese.entity;
 
-
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
-
 import org.hibernate.annotations.Index;
-
 import com.ese.config.validation.Eng;
 
 /**
@@ -23,9 +22,14 @@ public class Item {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER, optional=false)
+	@JoinColumn(name="orderId")
 	private Order order;
 
+	@ManyToOne(fetch=FetchType.EAGER, optional=false)
+	@JoinColumn(name="proDeptId")
+	private ProDept proDept;
+	
 	@NotNull
 	@Eng
 	private String product;
@@ -35,6 +39,16 @@ public class Item {
 
 	@NotNull
 	private int quantity;
+
+	private int userId;
+	
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 
 	/**
 	 * @return the order
@@ -101,6 +115,14 @@ public class Item {
 
 	public void setOrder(Order order) {
 		this.order = order;
+	}
+
+	public ProDept getProDept() {
+		return proDept;
+	}
+
+	public void setProDept(ProDept proDept) {
+		this.proDept = proDept;
 	}
 
 }

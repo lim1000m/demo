@@ -22,6 +22,7 @@ function ist() {
 	<table border="1">
 	<tr>
 		<th>상품아이디</th>
+		<th>분류명</th>
 		<th>상품명</th>
 		<th>가격임</th>
 		<th>구입자</th>
@@ -31,6 +32,7 @@ function ist() {
 		<c:forEach var="result" items="${itemList}" varStatus="status">
 			<tr>
 			<td align="center" class="listtd"><c:out value="${result.id}"/></td>
+			<td align="center" class="listtd"><c:out value="${result.proDept.proDeptNm}"/></td>
 			<td align="center" class="listtd"><c:out value="${result.product}"/> </td>
 			<td align="center" class="listtd"><c:out value="${result.price}"/> </td>
 			<td align="center" class="listtd"><a href="<c:url value='findJoin.do'/>?id=${result.order.id}"><c:out value="${result.order.customer}"/></a></td>

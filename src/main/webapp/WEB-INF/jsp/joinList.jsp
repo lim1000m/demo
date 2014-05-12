@@ -11,7 +11,7 @@
 <script src="<c:url value='/js/lib/jquery.form.js' /> "></script>
 </head>
 <body>
-	<h3>${orderList.customer}</h3>
+	<h3>${order.customer}</h3>
 	<table border="1">
 	<tr>
 		<th>아이디</th>
@@ -20,7 +20,7 @@
 		<th>수정</th>
 		<th>삭제</th>
 	</tr>
-		<c:forEach var="result" items="${orderList.Item}" varStatus="status">
+		<c:forEach var="result" items="${order.items}" varStatus="status">
 			<tr>
 			<td align="center" class="listtd"><c:out value="${result.id}"/></td>
 			<td align="center" class="listtd"><c:out value="${result.product}"/> </td>

@@ -6,29 +6,26 @@ import java.util.LinkedHashSet;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 
 /**
  * An order.
  */
 @Entity
-@Table(name="T_ORDER")
 public class Order {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private String id;
+	private int id;
 	
 	private String customer;
 	
-	@OneToMany(cascade=CascadeType.ALL)
-	@JoinColumn(name="ORDER_ID")
+	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL, mappedBy="order")
 	private Collection<Item> items = new LinkedHashSet<Item>();
 
 	/**
@@ -62,11 +59,11 @@ public class Order {
 	/**
 	 * @return the id
 	 */
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	
