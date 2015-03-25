@@ -1,0 +1,86 @@
+/*
+ * Copyright © 2006-2014 KT Corp. All rights reserved.
+ * 
+ * This is a proprietary software of kt Inc. and you may not use this file except in compliance
+ * with license agreement with kt Corp. Any redistribution or use of this software, with or without
+ * modification shall be strictly prohibited without prior written approval of kt Corp. and the
+ * copyright notice above does not evidence any actual or intended publication of such software.
+ */
+@charset "utf-8";
+@import url('default.css');
+
+/* layout */
+#wrap_map{position:relative;width:100%;min-width:857px;height:100%;min-height:655px;}
+.contet_map{z-index:100;position:absolute;width:100%;height:100%;}
+#mapOVDiv{z-index:1;position:absolute;left:400px;top:65px;width:120px;height:85px;border:1px solid #000;background:#FFF;}
+.map_size_full{width:1675px;height:950px;}
+
+/* Map Toolbar : Total Width-848px */
+.mtb_sect{z-index:9999;overflow:hidden;position:absolute;left:5px;top:6px;width:848px;height:43px;font-size:11px;font-weight:bold;color:#fff;}
+.mtb_sect.tri{left:8px;top:10px;}/*3단분할화면 : 사용X : 다분할 화면과 큰 차이 없음*/
+.mtb_sect.full{left:387px;top:16px;}/*전체지도화면*/
+.mtb, .mtb_in{position:relative;display:inline-block;height:43px;background:url('../../../images/basic/bg_mtb.png') no-repeat;}
+.mtb{background-position:left top;}
+.mtb_in{left:17px;padding-right:17px;width:814px;background-position:right top;}
+
+.mtb ul{float:left;margin-top:8px;}
+.mtb ul.area01{}
+.mtb ul.area02{display:none;width:180px;text-align:right;}
+.mtb ul.area03{float:right;}
+.mtb li{display:inline;padding:0 5px;}
+
+.mtb img{}
+.mtb input.scale{width:120px;height:20px;border:none;}
+
+
+#bkmk_wrap_map{position:relative;width:100%;min-width:570px;height:100%;min-height:300px;}
+.bkmk_mtb_sect{overflow:hidden;position:absolute;left:5px;top:6px;width:561px;height:43px;font-size:11px;font-weight:bold;color:#fff;}
+.bkmk_mtb, .bkmk_mtb_in{position:relative;display:inline-block;height:43px;background:url('../../../images/basic/bg_mtb.png') no-repeat;}
+.bkmk_mtb{background-position:left top;}
+.bkmk_mtb_in{left:17px;padding-right:17px;width:527px;background-position:right top;}
+
+.bkmk_mtb ul{float:left;margin-top:8px;}
+.bkmk_mtb ul.area01{}
+.bkmk_mtb ul.area02{display:none;width:180px;text-align:right;}
+.bkmk_mtb ul.area03{float:right;}
+.bkmk_mtb li{display:inline;padding:0 5px;}
+
+/* Map Menu : Total Width-328px */
+.menu_layer{position:absolute;left:46px;top:16px;width:326px;height:308px;font-weight:bold;color:#fff;}
+/* Map Menu : Title */
+.menu_tit{position:relative;height:34px;font-size:13px;font-family:Arial;background:url('../../../images/basic/bg_menu_tit.png') no-repeat left top;}
+.menu_tit .tit_txt{position:absolute;left:20px;top:10px;}
+.menu_tit .tit_ico{position:absolute;right:12px;top:8px;}
+/* Map Menu : Contents Section */
+.menu_cont{padding:10px 10px 10px 10px;background:url('../../../images/basic/bg_menu_cont.png') no-repeat left bottom;}
+.menu_climate_cont, .menu_legend{border:0 solid #656e78;}
+/* Map Menu : Contents Section : Now(Time)-현재시각, Climate of today-금일기후 */
+.menu_climate{margin:1px auto 2px auto;}
+.menu_climate_top{position:relative;margin:0 3px 3px 0;font-weight:normal;color:#84ff81;}
+.menu_time{position:absolute;right:3px;top:6px;}
+.menu_climate_cont{height:52px;}
+/* Map Menu : Contents Section : Legend of Event 이벤트 범례 */
+.menu_legend{margin:0 auto 2px auto;padding:8px 8px;color:#4a525c;background:#eee;}
+.menu_legend li{display:block;padding:4px 15px 4px 30px;background:no-repeat 10px 50%;}
+.menu_legend li.stat01{background-image:url('../../../images/basic/ico_stat_map01.png');}
+.menu_legend li.stat02{background-image:url('../../../images/basic/ico_stat_map02.png');}
+.menu_legend li.stat03{background-image:url('../../../images/basic/ico_stat_map03.png');}
+/* Map Menu : Contents Section : Menu List */
+.menu_lst{width:308px;}
+.menu_lst ul{width:100%;*zoom:1;}
+.menu_lst:after{content:"";clear:both;display:block;}
+.menu_lst li{float:left;width:142px;padding:12px 0;margin:0 5px;background:url('../../../images/basic/bar_map_menu.gif') repeat-x left bottom;}
+.menu_lst li.full{width:298px;}
+.menu_lst li.last{background:none;}
+.menu_lst a, .menu_lst a:hover{display:inline-block;padding:0 8px;color:#fff;}
+
+/* Map Layer */
+.box_layer{border:2px solid #25292c;background:#fff;}
+.layer_tit{position:relative;border:1px solid;border-color:#5a6064 #5a6064 #25292c #5a6064;color:#fff;background:#383d40 url('../../../images/basic/bg_layer_tit.gif') repeat-x left bottom;}
+.layer_tit .tit_txt{display:inline-block;padding:5px 5px 6px 27px;font-weight:bold;background:url('../../../images/basic/ico_tit_bookmark.png') no-repeat 10px 5px;}
+.layer_tit .rgt_area{position:absolute;right:10px;top:1px;}
+.layer_tit .rgt_area li{display:inline;}
+.box_layer .layer_cont{padding:10px;border:1px solid #ccc;}
+/* Map Layer : Bookmark */
+.layer_bookmark{width:300px;}/*설정 너비에서 padding값(15+15)를 제외한 값이 Grid의 너비가 됨*/
+.layer_bookmark .layer_cont{height:150px;}

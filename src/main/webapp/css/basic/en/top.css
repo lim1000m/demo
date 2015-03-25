@@ -1,0 +1,54 @@
+/*
+ * Copyright © 2006-2014 KT Corp. All rights reserved.
+ * 
+ * This is a proprietary software of kt Inc. and you may not use this file except in compliance
+ * with license agreement with kt Corp. Any redistribution or use of this software, with or without
+ * modification shall be strictly prohibited without prior written approval of kt Corp. and the
+ * copyright notice above does not evidence any actual or intended publication of such software.
+ */
+@charset "utf-8";
+@import url('common.css');
+
+/* Layout Basic */
+#wrap{background:#fff url('../../../images/basic/bg_top.gif') repeat-x left top;}
+#header{position:relative;width:1680px;height:84px;}
+
+/* logo */
+.logo{position:absolute;left:47px;top:16px;}
+
+
+/* GNB */
+#gnb{position:relative;left:0;top:24px;text-align:center;}
+#gnb a:hover, #gnb .active{text-decoration:none;}
+#gnb ol{}
+#gnb li{display:inline;margin:0 28px;}
+#gnb li a{display:inline-block;height:25px;font-size:14px;font-weight:bold;color:#393939;}
+#gnb li a span{display:inline-block;margin-top:7px;}
+#gnb li a:hover, #gnb li a:active, #gnb li .active{color:#ed353c;}
+#gnb li a:hover span, #gnb li a:active span, #gnb li .active span{}
+
+#gnb_depth02_1{display:block;position:absolute;top:35px;left:415px;}
+#gnb_depth02_2{display:none;position:absolute;top:35px;left:588px;}
+#gnb_depth02_3{display:none;position:absolute;top:35px;left:745px;}
+#gnb_depth02_4{display:none;position:absolute;top:35px;left:935px;}
+#gnb_depth02_5{display:none;position:absolute;top:35px;left:615px;}
+#gnb_depth02_6{display:none;position:absolute;top:35px;left:1077px;}
+
+.gnb_depth02{height:25px;padding-left:10px;background:#1f1f1f;}
+.gnb_depth02 ol{}
+.gnb_depth02 ol li{margin:0 !important;padding:0 8px 0 10px;background:url('../../../images/basic/bar_gnb_depth02.gif') no-repeat right 50%;}
+.gnb_depth02 ol li.none{background:none;}
+.gnb_depth02 li a{height:20px !important;padding:7px 5px 0 5px !important;font-size:12px !important;color:#fff !important;}
+.gnb_depth02 li a:hover, .gnb_depth02 li a:active, .gnb_depth02 .active{color:#ed353c !important;}
+
+
+/* Member Info Section */
+#indiv_sect{position:absolute;right:60px;top:18px;}
+.mem_sect{display:inline;margin-right:5px;}
+.mem_sect .name{margin-right:2px;font-weight:bold;color:#232323;vertical-align:middle;}
+
+.layout_sect, .layout_sect ul{background:url('../../../images/basic/bg_layout.gif') no-repeat;}
+.layout_sect{display:inline-block;padding-left:15px;background-position:left top;vertical-align:middle;}
+.layout_sect ul{height:35px;padding-right:15px;background-position:right top;}
+.layout_sect li{display:inline;padding:0 3px;}
+.layout_sect li img{padding-top:8px;}

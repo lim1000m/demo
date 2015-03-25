@@ -1,0 +1,35 @@
+/*
+ * Copyright © 2006-2014 KT Corp. All rights reserved.
+ * 
+ * This is a proprietary software of kt Inc. and you may not use this file except in compliance
+ * with license agreement with kt Corp. Any redistribution or use of this software, with or without
+ * modification shall be strictly prohibited without prior written approval of kt Corp. and the
+ * copyright notice above does not evidence any actual or intended publication of such software.
+ */
+@charset "utf-8";
+@import url('default.css');
+
+/* 서비스별 적용 */
+body.bg2{background:#eee;}
+#wrap_pop{width:100%;min-width:600px;}
+#header_pop{overflow:hidden;width:100%;height:48px;background:#eb6a6f url(../../../images/basic/bg_tit_pop.gif) repeat-x left top;}
+.tit_pop{margin:13px 0 0 22px;padding:4px 0 0 30px;font-size:14px;font-weight:bold;color:#fff;background:url(../../../images/basic/ico_tit_pop.gif) no-repeat;}
+.tit_close{position:absolute;top:9px;right:15px;}
+#container_pop{clear:both;margin:25px 30px 30px 30px;*zoom:1;}
+#container_pop:after{content:"";clear:both;display:block;}
+
+/* 통계현황 */
+.stat{width:670px;}
+.stat .sect_lr{width:330px;}
+.grp_area{margin-bottom:10px;*zoom:1;}
+.grp_area:after{content:"";clear:both;display:block;}
+.grp_area .tab_sect{margin-bottom:5px !important;}
+.grp_area .grp_sect{overflow:hidden;height:295px;}
+.legend_area{clear:both;}
+.legend_area .insect{overflow-y:auto;height:320px;margin:8px 20px;}
+.legend_area ul{}
+.legend_area li{padding:4px 0 3px 0;}
+.legend_area dt, .legend_area dd{display:inline-block;padding:2px 3px 1px 3px;}
+.legend_area dt{width:40px;border:1px solid #ddd;font-weight:bold;text-align:center;color:#eee;}
+.legend_area dd{color:#333;}
+.legend_area dd .cnt_txt{color:#999;}

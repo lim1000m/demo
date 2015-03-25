@@ -1,0 +1,41 @@
+/*
+ * Copyright © 2006-2014 KT Corp. All rights reserved.
+ * 
+ * This is a proprietary software of kt Inc. and you may not use this file except in compliance
+ * with license agreement with kt Corp. Any redistribution or use of this software, with or without
+ * modification shall be strictly prohibited without prior written approval of kt Corp. and the
+ * copyright notice above does not evidence any actual or intended publication of such software.
+ */
+@import url('common.css');
+
+/* layout */
+html{overflow:hidden;width:100%;height:100%;}
+body{width:100%;height:100%;background:#ffffff;}
+#wrap{width:100%;height:100%;}
+#container{min-width:415px;height:750px;margin:0 auto;background:url(../../../images/common/bg_main.jpg) no-repeat center top;}
+.container_in{position:relative;top:356px;width:415px;height:278px;margin:0 auto;background:url(../../../images/common/bg_loginbox.png) no-repeat center top;*zoom:1;}
+.container_in:after{content:"";clear:both;display:block;}
+
+/* logo */
+.logo_sect{position:relative;left:38px;top:18px;}
+.logo, .logo_sub{position:absolute;}
+.logo{left:0;top:0;}
+.logo_sub{left:5px;top:43px;}
+
+/* Login Section */
+/*.login_sect{width:279px;margin:0 auto;}*/
+.login_sect{position:absolute;left:100px;top:10px;width:279px;}
+.login_sect fieldset{position:relative;top:92px;}
+.login_sect dl{overflow:hidden;position:relative;height:60px;}
+.login_sect dt, .login_sect dd{display:block;position:absolute;}
+.login_sect dt.uid{top:7px;left:51px;}
+.login_sect dt.upass{top:39px;left:0;}
+.login_sect dd.uid{top:5px;left:72px;}
+.login_sect dd.upass{top:35px;left:72px;}
+.login_sect input{width:132px;height:18px;border:1px solid #c3c3c3;}
+.login_sect p{overflow:visible;position:absolute;top:0;left:214px;vertical-align:top;}
+
+/* Copyright */
+.copy_sect{position:absolute;bottom:0;width:100%;height:88px;background:#eeeff0;}
+.copy{padding:16px 62px 10px 0;font-size:10px;font-family:Arial;text-align:right;color:#575757;}
+.copy .comp_nm{color:#919d8a;}

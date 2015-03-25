@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ese.dwg.tree.service.mapper.TreeMapper">
+
+	<select id="getTreeData" parameterType="java.util.HashMap" resultType="egovframework.rte.psl.dataaccess.util.EgovMap">
+		SELECT group_serno as id, group_cd,  prnt_group_serno , group_nm data, group_lvl , dvsn_cd , group_kind ,
+			   (SELECT DECODE(count(group_cd),0,'N','Y') 
+			    FROM EEAM_GROUP_TBL subTree 
+			    WHERE subTree.prnt_group_serno = tree.group_serno and subTree.group_lvl = tree.group_lvl+1) is_leaf
+		FROM EEAM_GROUP_TBL tree
+		<choose>
+			<when test="groupLvl != null and groupLvl != ''">
+				WHERE group_lvl = #{groupLvl}			
+			</when>
+			<otherwise>
+				WHERE group_lvl = 1
+			</otherwise>
+		</choose>
+		<if test="groupSerno != null and groupSerno != ''">
+			and prnt_group_serno = #{groupSerno}
+		</if>
+		<if test="dvsnCd != null and dvsnCd != ''">
+			and dvsn_cd = #{dvsnCd}
+		</if>
+		order by id
+	</select>
+	
+</mapper>

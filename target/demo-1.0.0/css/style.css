@@ -1,0 +1,124 @@
+	
+	BODY{
+	SCROLLBAR-FACE-COLOR: #f2f2f2; 
+	FONT-SIZE: 11px; 
+	MARGIN: 0px; 
+	SCROLLBAR-HIGHLIGHT-COLOR: #ffffff; 
+	SCROLLBAR-SHADOW-COLOR: #999999; 
+	COLOR: #525252; 
+	SCROLLBAR-3DLIGHT-COLOR: #999999; 
+	LINE-HEIGHT: 18px; 
+	SCROLLBAR-ARROW-COLOR:#333333; 
+	SCROLLBAR-DARKSHADOW-COLOR: #ffffff; 
+	SCROLLBAR-BASE-COLOR: #f2f2f2
+	}
+	.readonly {
+		background-color: #CCCCCC;
+	}
+	
+	.readonly2 {
+		border-width:0pt;
+		width:200;
+	}
+	
+	.readonly3 {
+		border-width:0pt;
+		width:50;
+		cursor: hand;
+		color: blue;
+	}
+
+	td {font: 8pt/11pt "�뗭�", "Verdana"; color:#666666;}
+	.graybold {font:bold 8pt/11pt "�뗭�", "Verdana"; color:#666666;}
+	
+	.bgreenbold {font:bold 8pt/11pt "�뗭�", "Verdana"; color:#4791c1;}
+	
+	.bluebold {font:bold 10pt/11pt "�뗭�", "Verdana"; color:#336699;}
+	.brownbold {font:bold 10pt/11pt "�뗭�", "Verdana"; color:#a57c52;}
+	.purplebold {font:bold 8pt/11pt "�뗭�", "Verdana"; color:#8f699e;}
+	
+	.whitebold {font:bold 10pt/11pt "�뗭�", "Verdana"; color:#ffffff;}
+	
+	input.nbox { border:#7f9db9 1px solid; font-size:9pt; font-family: "�뗭�", "Verdana"; }
+	input { border:#7f9db9 1px solid; font-size:9pt; font-family: "�뗭�", "Verdana"; }
+	input.txtfix { border:#7f9db9 1px solid; font-size:9pt; font-family: "�뗭�", "Verdana"; background:#f7f7f7; }
+	select { border:#7f9db9 1px solid; font-size:9pt; font-family: "�뗭�", "Verdana"; }
+	textarea { border:#7f9db9 1px solid; font-size:9pt; font-family: "�뗭�", "Verdana";}
+	textarea.txafix { border:#7f9db9 1px solid; font-size:9pt; font-family: "�뗭�", "Verdana"; background:#f7f7f7;}
+	
+	a:link {text-decoration:none; color:#333333;}
+	a:visited {text-decoration:none; color:#333333;}
+	a:hover {text-decoration:underline; color:#333333;}
+	
+	a.logyn:link {text-decoration:none; font:bold; color:#0054a6;}
+	a.logyn:visited {text-decoration:none; font:bold; color:#0054a6;}
+	a.logyn:hover {text-decoration:underline; font:bold; color:#0054a6;}
+	
+	/**** �섏젙��: �⑦쁽二�******/
+	
+	.tab_line_01 {height:2px; background-color:#59afd5;}
+	.tab_line_02 {height:2px; background-color:#6397cd;}
+	.tab_line_03 {height:2px; background-color:#97BC27;}     
+	/****** ��씠��1 援듦쾶  ******/
+	.tr_b_l   {font-family:"�뗭�泥�; font-size:11px; background-color:#e8f7fc; color:#2B7BA0;  height:20px; font-weight:bold; text-align:left;}     /****** ��씠��1 援듦쾶  LEFT ******/
+	.tr_b_c   {font-family:"�뗭�泥�; font-size:11px; background-color:#EEFBFD; color:#1787B7; height:20px; font-weight:bold; text-align:center;}   /****** ��씠��1 援듦쾶  CENTER ******/
+	.tr_b_r   {font-family:"�뗭�泥�; font-size:11px; background-color:#e8f7fc; color:#2B7BA0;  height:20px; font-weight:bold; text-align:right;}    /****** ��씠��1 援듦쾶  RIGHT ******/
+	/****** ��씠��2 援듦쾶  ******/
+	.tr_p_l   {font-family:"�뗭�泥�; font-size:11px; background-color:#ebf4fb; color:#2B7BA0;  font-weight:bold; text-align:left;}     /****** ��씠��2 援듦쾶  LEFT ******/
+	.tr_p_c   {font-family:"�뗭�泥�; font-size:11px; background-color:#F0F7FD; color:#3278AB; height:20px; font-weight:bold; text-align:center;}   /****** ��씠��2 援듦쾶  CENTER ******/
+	.tr_p_r   {font-family:"�뗭�泥�; font-size:11px; background-color:#ebf4fb; color:#2B7BA0;  height:20px; font-weight:bold; text-align:right;}    /****** ��씠��2 援듦쾶  RIGHT ******/
+	/****** ��씠��3 援듦쾶  ******/
+	.tr_g_l   {font-family:"�뗭�泥�; font-size:11px; background-color:#f8faf2; color:#5f8200;  height:20px; font-weight:bold; text-align:left;}     /****** ��씠��3 援듦쾶  LEFT ******/
+	.tr_g_c   {font-family:"�뗭�泥�; font-size:11px; background-color:#f8faf2; color:#5f8200; height:20px; font-weight:bold; text-align:center;}   /****** ��씠��3 援듦쾶  CENTER ******/
+	.tr_g_r   {font-family:"�뗭�泥�; font-size:11px; background-color:#f8faf2; color:#5f8200;  height:20px; font-weight:bold; text-align:right;}    /****** ��씠��3 援듦쾶  RIGHT ******/
+	/********************* TABLE bottom *********************/
+	.tab-bottom01 { height:3px; background-image: url(../bg_board_bar01.gif);}
+	
+	/********************* TEXT *********************/
+	.td_in {
+		FONT-SIZE: 11px; COLOR: #616161; FONT-FAMILY: "�뗭�泥�; BACKGROUND-COLOR: #ffffff
+	}
+	.td_in2 {
+		FONT-SIZE: 11px; COLOR: #616161; FONT-FAMILY: "�뗭�泥�;  BACKGROUND-COLOR: #ffffff
+	}
+	.td_c {
+		FONT-SIZE: 11px; COLOR: #525252; FONT-FAMILY: "�뗭�泥�; HEIGHT: 21px; BACKGROUND-COLOR: #ffffff; text-align:center;
+		overflow:hidden; text-overflow:ellipsis;
+	}
+	.td_c {
+		FONT-SIZE: 11px; COLOR: #525252; FONT-FAMILY: "�뗭�泥�; HEIGHT: 21px; BACKGROUND-COLOR: #ffffff; text-align:center;
+	}
+	.td_ellipsis {
+		FONT-SIZE: 11px; COLOR: #525252; FONT-FAMILY: "�뗭�泥�; HEIGHT: 21px; BACKGROUND-COLOR: #ffffff; text-align:center;
+		/*overflow:hidden; text-overflow:ellipsis; */
+	}
+	.td_ellipsis	a:link {text-decoration: underline ; color: #525252;}
+	.td_ellipsis	a:active {text-decoration: underline ; color: #525252;}
+	.td_ellipsis	a:visited {text-decoration: underline ; color: #525252;}
+	.td_ellipsis	a:hover {text-decoration: underline ; color: #525252;}
+	.td_c	a:link {text-decoration: underline ; color: #525252;}
+	.td_c	a:active {text-decoration: underline ; color: #525252;}
+	.td_c	a:visited {text-decoration: underline ; color: #525252;}
+	.td_c	a:hover {text-decoration: underline ; color: #525252;}
+	.td_in	a:link {text-decoration: underline ; color: #616161;}
+	.td_in	a:active {text-decoration: underline ; color: #616161;}
+	.td_in	a:visited {text-decoration: underline ; color: #616161;}
+	.td_in	a:hover {text-decoration: underline ; color: #616161;}
+	.td_c2 {
+		FONT-SIZE: 11px; COLOR: #525252; FONT-FAMILY: "�뗭�泥�; HEIGHT: 21px; text-align:center;
+	}
+	.td_ellipsis2 {
+		FONT-SIZE: 11px; COLOR: #525252; FONT-FAMILY: "�뗭�泥�; HEIGHT: 21px; text-align:center;
+		/*overflow:hidden; text-overflow:ellipsis; */
+	}
+	.td_g_c {
+		FONT-SIZE: 11px; COLOR: #525252; FONT-FAMILY: "�뗭�泥�; HEIGHT: 21px; BACKGROUND-COLOR: #F0F0F0; text-align:center;
+	}
+	
+	.subtitle{
+	font-family: "�뗭�", "援대┝";
+	font-weight: bold;
+	font-size: 11px;
+	color: #2F7093;
+	}
+	

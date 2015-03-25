@@ -1,0 +1,334 @@
+/*
+ * Copyright © 2006-2014 KT Corp. All rights reserved.
+ * 
+ * This is a proprietary software of kt Inc. and you may not use this file except in compliance
+ * with license agreement with kt Corp. Any redistribution or use of this software, with or without
+ * modification shall be strictly prohibited without prior written approval of kt Corp. and the
+ * copyright notice above does not evidence any actual or intended publication of such software.
+ */
+@charset "utf-8";
+@import url('common.css');
+
+/* Layout Basic : '구조'가 아닌 '표현'에 해당하는 부분은 하단에서 정의  */
+body{background:#fff;}
+body.main{background:#535353;}
+body.tri{background:#535353 url('../../../images/basic/bg_snb.gif') repeat-y -44px top;}
+body.cctv{color:#fff;background:#3f454b;}
+#wrap{width:1680px;}
+html.if, body.if, #wrap_if{width:100%;height:100%;}
+.lft_sect{position:absolute;left:7px;top:10px;width:306px;}
+.lft_sect_tri{position:absolute;left:0;top:0;width:96px;}
+.cent_sect{position:absolute;left:329px;top:10px;width:857px;}
+.cent_sect_tri{position:absolute;left:99px;top:0px;width:1099px;}
+.rgt_sect{position:absolute;left:1201px;top:10px;width:472px;}
+.rgt_sect_tri{position:absolute;left:1201px;top:0px;width:472px;}
+.cent_btm_sect{position:relative;height:194px;}
+/* Layout detail */
+.sect_clmt, .sect_emgc, .sect_map, .sect_p_emgc{margin-bottom:10px;}
+body.tri .sect_p_emgc{margin-bottom:3px !important;}
+.sect_clmt .box_cont{height:52px;}
+.sect_emgc .box_cont{height:322px;} 
+.sect_eqmt .box_cont{height:322px;}
+.sect_cctv{height:195px;color:#fff;background:#3f454b;}/*사용X:메인화면에서 생략됨*/
+.sect_map .box_cont{height:655px;}/*.box_cont.map과 연계*/
+.sect_map .box_cont.tri{height:870px;}/*.box_cont.map과 연계*/
+.sect_cbs01, .sect_cbs02{position:absolute;top:0;height:100%;width:425px;}
+.sect_cbs01{left:0;}
+.sect_cbs02{left:432px;}
+.sect_cbs01 .cont_area, .sect_cbs02 .cont_area{height:171px;}
+.cent_btm_sect iframe{margin-top:9px;}
+.sect_p_emgc .box_cont{height:495px;}
+.sect_p_emgc .box_cont .rcont01{height:265px;margin-bottom:8px;}
+.sect_p_emgc .box_cont .rcont02{height:222px;}
+.sect_rnt .box_cont{height:298px;}
+body.tri .sect_rnt .box_cont{height:315px !important;}
+
+
+.div_area{*zoom:1;}
+.div_area:after{content:"";clear:both;display:block;}
+
+
+/**************************************** 서식 및 공통 구성 영역 : 관리시스템과 동일 : Start ****************************************/
+/* Search Box */
+.src_box_sect{margin-bottom:10px;background:#e4e4e4 url('../../../images/basic/bg_src_box_l.gif') no-repeat left top;*zoom:1;}
+.src_box_sect:after{content:"";clear:both;display:block;}
+.src_box_sect .inner{padding-top:11px;background:url('../../../images/basic/bg_src_box_rt.gif') no-repeat right top;}
+.src_box_sect .inner2{padding-right:30px;background:url('../../../images/basic/bg_src_box_r.gif') no-repeat right bottom;}
+.src_box_sect .inner3{padding-bottom:16px;background:url('../../../images/basic/bg_src_box_l.gif') no-repeat left bottom;}
+.src_box_sect th{width:120px;font-weight:bold;text-align:center;color:#232628;}
+.src_box_sect label{padding:0 3px 0 12px;font-weight:bold;vertical-align:middle;color:#52565a;}
+.src_box_sect input{height:18px;border:1px solid #c1c1c1;}
+
+/* Button Section */
+.btn_sect{margin-bottom:6px;}
+.btn_sect_top{float:right;margin-bottom:6px;text-align:right;}
+.btn_sect_bottom{clear:both;text-align:center;}
+
+/* Section Information : Section의 정보를 표시해야 할 경우 사용 : Grid의 총 게시물 수 등 */
+.sect_info{padding:10px 0 6px 0;}
+
+/* Grid Section */
+.grd_sect{clear:both;margin-bottom:10px;}
+
+/* Box */
+div.box{overflow:hidden;position:relative;left:-1px;top:-1px;border:1px solid #CCC;background:#FFF;}
+div.shadow{position:relative;margin-bottom:10px;background:#AAA;}
+
+/* 서식 Basic */
+.inform{}
+.inform br{line-height:25px;}
+.inform .txt_tt{letter-spacing:-1px;}
+.inform select{height:19px;}
+.inform input{width:95%;height:17px;}
+.inform legend{width:100%;padding:10px 0;border-bottom:1px solid #ccc;background:#d8d8d8 url('../../../images/basic/bg_tit_form.gif') repeat-x left top;}
+.inform legend.bt_line{border-top:1px solid #ccc;}
+.inform legend span{padding:0 25px;font-weight:bold;color:#333;}
+.inform .insect{padding:10px 20px 20px 20px;}
+.inform table{width:100%;border-spacing:0;}
+.inform th, .inform td{padding:5px 0;border-top:none;border-bottom:1px dashed #d8d8d8;}
+.inform th{width:150px;text-align:left;}
+.inform td{padding:0 5px 0 10px;}
+.inform tr.last th, .inform tr.last td{border:none;}
+.inform label{display:inline-block;padding:0 15px 0 25px;font-weight:bold;vertical-align:middle;color:#52565a;background:url('../../../images/basic/blt_basic.gif') no-repeat 15px 4px;}
+.inform label.rc{padding:0 5px 0 15px;font-weight:normal;background:none;}
+.inform .txt_value{color:#111;}
+
+/* 서식 : 항목 영역 Background Type */
+.inform.bg .insect{padding:3px !important;}
+.inform.bg th, .inform.bg td{padding-top:7px;padding-bottom:7px;}
+.inform.bg th{background:#f5f5f5;}
+.inform.bg tr.last th, .inform.bg tr.last td{padding-bottom:9px;}
+.inform.bg .insect2{padding:10px !important;}
+.inform.bg .insect2 .grd_sect{margin-bottom:0 !important;}
+.wf_img_sect{border:1px solid #ccc;}
+
+/* 서식 : In Layer Type */
+.inform.inlayer legend{padding:7px 0 5px 0;}
+.inform.inlayer th, .inform.inlayer td{padding:4px 0 3px 0;}
+.inform.inlayer th{width:100px;}
+.inform.inlayer td{padding-right:5px;padding-left:10px;}
+.inform.inlayer label{padding:0 5px 0 25px;}
+
+/* 서식 : Table Type */
+.inform_tb{}
+.inform_tb table{width:100%;border:1px solid #ccc;}
+.inform_tb thead{background:#d8d8d8 url('../../../images/basic/bg_tit_form.gif') repeat-x left top;}
+.inform_tb thead th{padding:10px 0;border:1px solid #ccc;}
+.inform_tb td{text-align:center;}
+.inform_tb tbody th, .inform_tb tbody td{padding:5px;border-bottom:1px dashed #d8d8d8;border-right:1px dashed #d8d8d8;}
+.inform_tb tr.last th, .inform_tb tr.last td{border-bottom:none;}
+.inform_tb th.last, .inform_tb td.last{border-right:none;}
+.inform_tb td span.txt{vertical-align:middle;}
+
+/* Table Mini */
+.tb_mini{border-spacing:1px;border-collapse:separate;border:1px solid #ccc;font-size:11px;text-align:center;}
+.tb_mini th, .tb_mini td{padding:5px;background:none !important;}
+.tb_mini thead{background:#d8d8d8 url('../../../images/basic/bg_tit_form.gif') repeat-x left bottom;}
+.tb_mini tbody th, .tb_mini tbody td{border-bottom:1px dashed #d8d8d8;}
+.tb_mini tr.last th, .tb_mini tr.last td{border-bottom:none;}
+
+/* Layer Section */
+.layer_sect{z-index:999;position:absolute;padding:3px;border:1px solid #aaa;background:#fff;}
+.layer_sect.wf_acnt{display:none;top:30px;left:50px;width:450px;cursor:pointer;}
+
+/**************************************** 서식 및 공통 구성 영역 : 관리시스템과 동일 : End ****************************************/
+
+
+/* Contents Box : Title Area */
+.box_tit{position:relative;height:27px;margin-bottom:2px;border:1px solid #d0d0d0;color:#333;background:#eaeaea url('../../../images/basic/bg_tit.gif') repeat-x left bottom;}
+.box_tit .tit_txt{display:inline-block;padding:8px 0 7px 30px;font-weight:bold;background:url('../../../images/basic/blt_tit_arrw.png') no-repeat 10px 50%;}
+.box_tit .rgt_area{position:absolute;right:18px;top:5px;}
+.tit_legend, .tit_legend ul{position:relative;display:inline-block;height:18px;background:url('../../../images/basic/bg_legend.png') no-repeat;}
+.tit_legend{margin-right:10px;*margin-right:14px;font-size:11px;line-height:20px;*line-height:18px;font-weight:bold;color:#fff;background-position:left top;vertical-align:middle;} 
+.tit_legend ul{left:10px;padding-right:10px;background-position:right top;}
+.tit_legend li{display:inline;padding:0 6px 0 14px;background:no-repeat left 36%;}
+.tit_legend li.stat01{background-image:url('../../../images/basic/ico_stat01.gif');}
+.tit_legend li.stat02{background-image:url('../../../images/basic/ico_stat02.gif');}
+.tit_legend li.stat03{background-image:url('../../../images/basic/ico_stat03.gif');}
+.tit_legend li.stat04{background-image:url('../../../images/basic/ico_stat04.gif');}
+.tit_legend .count{color:#444;}
+.tit_legend.map li{padding:2px 6px 2px 17px;*padding-top:1px;background:no-repeat left top;}
+.tit_legend.map li.stat01{background-image:url('../../../images/basic/ico_stat_map01.png');}
+.tit_legend.map li.stat02{background-image:url('../../../images/basic/ico_stat_map02.png');}
+.tit_legend.map li.stat03{background-image:url('../../../images/basic/ico_stat_map03.png');}
+
+/* Contents Box Normal Type */
+.box_cont{padding:6px 12px 5px 12px;border:1px solid #d0d0d0;background:#fff;}
+.box_cont.map{padding:0 !important;border:none;}
+
+/* Contents Box Round Type */
+.box_cont_r{background:url('../../../images/basic/bg_box_r_l.gif') no-repeat left top;*zoom:1;}
+.box_cont_r:after{content:"";clear:both;display:block;}
+.box_cont_r .inner{padding-top:4px;background:url('../../../images/basic/bg_box_r_rt.gif') no-repeat right top;}
+.box_cont_r .inner2{padding-right:13px;background:url('../../../images/basic/bg_box_r_r.gif') no-repeat right bottom;}
+.box_cont_r .inner3{padding:0 0 20px 13px;background:url('../../../images/basic/bg_box_r_l.gif') no-repeat left bottom;}
+
+/* Contents Box Round Type : Title Area */
+/* iframe 내부 삽입으로 인한 수정 : 12/12/23
+.box_cont_r .tit_area{padding-left:12px;font-weight:bold;color:#333;background:url('../../../images/basic/blt_tit_bar.gif') no-repeat 2px top;}
+.box_cont_r .sub_txt{color:#a7a4a1;}
+*/
+.tit_area_r{display:block;padding-left:12px;margin-bottom:10px;font-weight:bold;color:#333;background:url('../../../images/basic/blt_tit_bar.gif') no-repeat 2px top;}
+.sub_txt_r{color:#a7a4a1;}
+
+/* Tab Section */
+.tab_sect, .tab_sect_in{height:31px;background:url('../../../images/basic/bg_tab.gif') no-repeat;}
+.tab_sect{margin-bottom:12px;padding-left:11px;background-position:left top;}
+.tab_sect_in{background-position:right top;}
+.tab_sect ul{overflow:hidden;padding-top:6px;height:25px;}
+.tab_sect li{display:inline;margin-left:3px;text-align:center;}
+.tab_sect li span, .tab_sect_in li a{position:relative;display:inline-block;height:25px;background:url('../../../images/basic/bg_tab_off.png') no-repeat;} 
+.tab_sect li a{padding-left:15px;font-weight:bold;color:#44494d;background-position:left top;}
+.tab_sect li a span{left:3px;padding-top:7px;padding-right:18px;background-position:right top;}
+.tab_sect li a:hover, .tab_sect li a:active, .tab_sect li .active,
+.tab_sect li a:hover span, .tab_sect li a:active span, .tab_sect li .active span{background:url('../../../images/basic/bg_tab_on.png') no-repeat}
+.tab_sect li a:hover, .tab_sect li a:active, .tab_sect li .active{background-position:left top;}
+.tab_sect li a:hover span, .tab_sect li a:active span, .tab_sect li .active span{background-position:right top;}
+
+/* Form Basic */
+input.cal{width:80px;}
+
+/* The Upper Part of Grid */
+.up_grd_sect, .up_grd_sect_in{background:url('../../../images/basic/bg_up_grd.gif') no-repeat;}
+.up_grd_sect{height:24px;margin-bottom:4px;padding-left:11px;color:#333;text-align:center;background-position:left top;}
+.up_grd_sect_in{height:17px;padding-top:7px;background-position:right top;}
+
+/* 검색 조건 설정 Section */
+.src_sect{margin-bottom:12px;text-align:center;}
+
+/* Grid Section */
+.grd_sect{clear:both;}
+
+/* Tree Section */
+.tree_sect{overflow:auto;border:1px solid #ddd;}
+
+/*snb : w96*/
+#snb{overflow-x:hidden;width:96px;line-height:130%;letter-spacing:-1px;}
+#snb ul{}
+#snb ul li{background:url('../../../images/basic/bg_snb_off.gif') no-repeat right bottom;}
+#snb ul li:hover, #snb ul li.active{background:url('../../../images/basic/bg_snb_on.gif') no-repeat right bottom;}
+#snb ul li a{display:block;padding:17px 26px 20px 8px;font-weight:bold;text-decoration:none;color:#FFF;background:url('../../../images/basic/blt_snb_arrw_off.gif') no-repeat 78px 45%;}
+#snb ul li a:hover, #snb ul li.active a{background-image:url('../../../images/basic/blt_snb_arrw_on.gif');}
+
+
+/**************************************** Main : Start ****************************************/
+/* Warning Visual */
+#wrn_sect{z-index:9998;display:none;position:absolute;top:0;left:0;width:100%;height:100%;cursor:pointer;
+background:rgba(0, 0, 0, 0.5); /* Firefox3↑, Safari2↑, Opera10↑, Chrome */
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#70000005, endColorstr=#70000005); /* IE5.5 ~ 7 */
+-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#70000005, endColorstr=#70000005)"; /* IE8, IE9 */
+}
+.wrn_cover{z-index:9998;position:absolute;width:100%;height:100%;cursor:pointer;}
+.wrn_cover img{width:100%;height:100%;}
+#wrn01, #wrn02{z-index:9990;display:none;position:absolute;width:1680px;height:88px;background:none;}
+#wrn01{top:350px;}
+#wrn02{top:460px;}
+#wrn_snd{z-index:1;display:none;position:absolute;width:1px;height:1px;background:none;}
+#wrn_snd p{z-index:0;position:absolute;top:10px;left:10px;width:300px;height:200px;font-size:14px;font-weight:bold;color:#fff;}
+
+/* Now(Time)-현재시각 */
+.cont_time, .cont_time dl{background:url('../../../images/basic/bg_time.gif') no-repeat;}
+.cont_time{overflow:hidden;height:33px;margin-bottom:10px;padding-left:18px;background-position:left top;}
+.cont_time dl{height:27px;padding-top:6px;font-weight:bold;background-position:right top;}
+.cont_time dt, .cont_time dd{display:inline;}
+.cont_time dt span{display:inline-block;padding:5px 15px 5px 25px;color:#fff;background:url('../../../images/basic/blt_time.png') no-repeat left top;}
+.cont_time dd span{display:inline-block;height:16px;padding:5px 10px 0 10px;color:#84ff81;background:#424549;}
+
+/* Iframe Inner Contents : Sharing Popup Inner Contents */
+/* Climate of today-금일기후 */
+.cont_climate{margin:4px auto 0 auto;font-size:11px;font-weight:bold;color:#909396;text-align:center;*zoom:1;}
+.cont_climate:after{content:"";clear:both;display:block;}
+.cont_climate li{display:inline;}
+.cont_climate li span{display:inline-block;width:55px;}
+.cont_climate li img{margin-bottom:2px;}
+
+/* The present condition>Emergency-상황발생현황 */
+/* 상황발생 Section */
+.event_sect{max-width:1000px;}
+.event_sect table{overflow:hidden;width:100%;margin-bottom:8px;border-collapse:collapse;}
+.event_sect tr{overflow:hidden;height:33px;}
+.event_sect th, .event_sect td{background:url('../../../images/basic/bg_event.gif') no-repeat;}
+.event_sect th{width:77px;padding:0 10px 0 4px;font-weight:bold;color:#44494d;text-align:center;background-position:left top;}
+.event_sect td{background-position:right top;}
+
+/* Graph */
+/* Graph Section */
+.grp_sect_if{height:245px;border:1px solid #dcdcdc;}
+/* Legend button */
+.grp_legend_btn{float:right;margin:8px 5px 0 0;}
+/* The Legend of Graph */
+.sect_legend{z-index:999;display:none;position:absolute;left:316px;width:330px;}
+.sect_legend .rgt_area{position:absolute;right:12px;top:8px;}
+.sect_legend.emgc{top:159px;}
+.sect_legend.eqmt{top:535px;}
+.box_legend_tit{position:relative;height:27px;margin-bottom:2px;border:1px solid #4b4b4b;color:#333;background:#eaeaea url('../../../images/basic/bg_tit_legend.gif') repeat-x left bottom;}
+.box_legend_tit .tit_txt{display:inline-block;padding:8px 0 7px 30px;font-weight:bold;color:#1dff9b;background:url('../../../images/basic/blt_tit_legend_arrw.png') no-repeat 10px 50%;}
+.box_legend{overflow:hidden;overflow-y:auto;height:310px;padding:12px 18px;border:1px solid #4b4b4b;background:#fff;}
+.box_legend ul{}
+.box_legend li{padding:4px 0 3px 0;}
+.box_legend dt, .box_legend dd{display:inline-block;padding:2px 3px 1px 3px;}
+.box_legend dt{width:40px;border:1px solid #ddd;font-weight:bold;text-align:center;color:#eee;}
+.box_legend dd{color:#333;}
+.box_legend dd .cnt_txt{color:#999;}
+/**************************************** Main : End ****************************************/
+
+
+/* Sub Title */
+.sub_tit{margin-bottom:5px;padding-left:22px;font-size:14px;font-weight:bold;color:#333;background:url('../../../images/basic/ico_sub_tit.gif') no-repeat 5px 1px;}
+
+/* Process Section */
+.process_sect{margin-bottom:10px;}
+.process_sect ul{width:753px;margin:0 auto;}
+.process_sect ul li{display:inline;}
+
+/* Workflow Section */
+.wf_sect{height:170px;border:1px solid #ccc;background:#fff;}
+/* Workflow Contents */
+.content_wf{padding:10px 20px;text-align:center;}
+.content_wf img{vertical-align:top;}
+.sld_base{margin:0 auto;border-collapse:collapse;border-spacing:0;}
+/* Workflow Contents : Basic */
+.sld_base td{vertical-align:top;}
+.sld_base td img{padding:10px 5px 0 5px;}
+/* Workflow Contents : Background Basic */
+.sld_base td, .sld_base li, .sld_base ul{background:url('../../../images/common/wf/line_v.gif') no-repeat 50% top;}
+/* Workflow Contents : Start Area */
+.sld_base tr.start{background:none;}
+.sld_base tr.start td{background-repeat:repeat-y;background-position:50% bottom;}
+.sld_base tr.start img{padding:0;}
+/* Workflow Contents : Start Horisontal Line */
+.line_v_start, .line_v_start_in{height:13px;background:url('../../../images/common/wf/line_h.gif') repeat-x right bottom;}
+.line_v_start{margin:0 83px 0 83px;}
+.line_v_start_in{background-position:left bottom;}
+/* Workflow Contents : 2Depth Case */
+.h_a_basic, .sld_base ul{width:150px;}
+.h_a_basic{float:left;padding:0 10px;} 
+.h_a_basic01, .h_a_basic02{float:left;}
+.h_a_basic01 img, .h_a_basic02 img{cursor:pointer;}
+.h_a_basic01{}
+.h_a_basic02{background:url('../../../images/common/wf/line_h.gif') no-repeat 50% 10px;}
+/* Workflow Contents : List Style */
+.sld_base ul{padding-top:10px;}
+.sld_base ol li{display:block;position:relative;background-repeat:repeat-y;}
+
+/* CCTV Layer Section : CCTV 조회 */
+.cctv_layer_sect{position:relative;top:0;left:0;width:845px;}
+.cctv_layer_sect .basic{position:absolute;border:1px solid #bbb;background:#333 url('../../../images/basic/bg_cctv_layer.png') no-repeat 50% 50%;}
+.cctv_layer_sect .size01{width:210px;height:153px;}
+.cctv_layer_sect .size03{width:632px;height:461px;}
+.cctv_layer_sect .loca01{top:0;left:0;}
+.cctv_layer_sect .loca02{top:462px;left:0;}
+.cctv_layer_sect .loca03{top:462px;left:211px;}
+.cctv_layer_sect .loca04{top:462px;left:422px;}
+.cctv_layer_sect .loca05{top:0;left:633px;}
+.cctv_layer_sect .loca06{top:154px;left:633px;}
+.cctv_layer_sect .loca07{top:308px;left:633px;}                
+.cctv_layer_sect .loca08{top:462px;left:633px;}
+.cctv_layer_rgt_area{position:relative;top:0;left:855px;width:250px;}
+.ctrl_sect{height:123px;border:1px solid #ccc;padding:10px 0 0 10px;text-align:center;background:#dedede url('../../../images/common/cctv/bg_cctv_ctrl.gif') repeat-x left top;}
+.cctv_layer_sect_if{background:#333 url('../../../images/basic/bg_cctv_layer.png') no-repeat 50% 50%;}
+
+/* CCTV Layer Section : CCTV 화면설정 */
+.cctv_layer_img{position:relative;top:0;left:0;width:325px;}
+.cctv_layer_img img{position:absolute;width:325px;height:405px;}
+.cctv_layer_conf_area{position:relative;top:0;left:335px;width:650px;}
