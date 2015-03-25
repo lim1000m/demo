@@ -10,6 +10,7 @@ import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
+import com.ese.config.init.SystemInitialization;
 import com.ese.config.spring.AppConfig;
 import com.ese.config.spring.DataSourceConfig;
 import com.ese.config.spring.WebAppConfig;
@@ -34,6 +35,9 @@ public class WebConfig implements WebApplicationInitializer {
         
         ServletRegistration.Dynamic dispatcher = servletContext.addServlet("AppServlet", new DispatcherServlet(dispatcherServletContext));
         dispatcher.setLoadOnStartup(1);
-        dispatcher.addMapping("*.do"); 
+        dispatcher.addMapping("*.do");
+        
+        ServletRegistration.Dynamic systeminitialize = servletContext.addServlet("Initialize", SystemInitialization.class);
+        systeminitialize.setLoadOnStartup(2);
     }
 }

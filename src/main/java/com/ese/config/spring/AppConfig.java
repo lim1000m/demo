@@ -13,7 +13,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.stereotype.Controller;
 
 @Configuration
-@ComponentScan(basePackages="com.ese.demo", excludeFilters={@Filter(Controller.class), @Filter(Configuration.class)} )
+@ComponentScan(basePackages="com.ese", excludeFilters={@Filter(Controller.class), @Filter(Configuration.class)} )
 @EnableScheduling
 @EnableAspectJAutoProxy
 @EnableCaching
@@ -41,5 +41,4 @@ public class AppConfig  {
 	public CacheManager cacheManager() {
 		return new ConcurrentMapCacheManager();
 	}
-	
 }

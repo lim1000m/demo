@@ -1,37 +1,43 @@
 package com.ese.config.spring;
 
 
-import java.util.Properties;
 import javax.sql.DataSource;
+
 import org.apache.commons.dbcp.BasicDataSource;
-import org.hibernate.SessionFactory;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
-import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
-import org.springframework.orm.hibernate4.HibernateTransactionManager;
-import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@PropertySource(value={"classpath:demo/properties/application.properties"})
-@ComponentScan("com.ese.**.service.impl")
+@PropertySource(value={"classpath:dwg/properties/application.properties"})
+@MapperScan("com.ese.dwg.**.service.mapper")
 public class DataSourceConfig {
 
 	@Autowired
 	private Environment env;
 	
-	@Value("${init-db:false}")
-	private String initDatabase;
+	@Value("${type-db}")
+	private String initDateBaseType;
 	
-	@Autowired
-	public SessionFactory sessionFactory;
-	
+	/**
+	 * define the connection information for using datasource
+	 * @category method
+	 * @author ESE-MILLER
+	 * @since 2015.02.05
+	 * @return
+	 */
 	@Bean
 	public DataSource dataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
@@ -39,42 +45,33 @@ public class DataSourceConfig {
 		dataSource.setUrl(env.getProperty("jdbc.url"));
 		dataSource.setUsername(env.getProperty("jdbc.username"));
 		dataSource.setPassword(env.getProperty("jdbc.password"));
-		
 		return dataSource;
 	}
-	
-	@Bean
-	public LocalSessionFactoryBean sessionFactory()  {
-		LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
-		sessionFactory.setDataSource(dataSource());
-		sessionFactory.setPackagesToScan(new String[] { "com.ese.entity" });
-		sessionFactory.setHibernateProperties(hibernateProperties());
-		return sessionFactory;
-	}
 		   
+	/**
+	 * Injection mybatis configuration
+	 * point the mybatis mapper location
+	 * @author ESE-MILLER
+	 * @since 2015.02.05
+	 * @category method
+	 * @return SqlSessionFactory
+	 * @throws Exception
+	 */
 	@Bean
-	@Autowired
-	public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
-		HibernateTransactionManager txManager = new HibernateTransactionManager();
-		txManager.setSessionFactory(sessionFactory);
-		txManager.setRollbackOnCommitFailure(true);
-		return txManager;
-	}
-		 	
-	@Bean
-	public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
-		return new PersistenceExceptionTranslationPostProcessor();
+	public SqlSessionFactory sqlSessionFatory(DataSource datasource) throws Exception{
+		SqlSessionFactoryBean sqlSessionFactory = new SqlSessionFactoryBean();
+		sqlSessionFactory.setDataSource(datasource);
+		sqlSessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:dwg/mapper/mapper_"+initDateBaseType+"/*.xml"));	
+		return (SqlSessionFactory) sqlSessionFactory.getObject();
 	}
 	
-	@SuppressWarnings("serial")
-	Properties hibernateProperties() {
-		return new Properties() {
-			{
-				setProperty("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
-				setProperty("hibernate.dialect", env.getProperty("hibernate.dialect"));
-				setProperty("hibernate.globally_quoted_identifiers", env.getProperty("hibernate.globally_quoted_identifiers"));
-				setProperty("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
-			}
-		};
+	@Bean
+	public SqlSession sqlsession(SqlSessionFactory sqlSessionFatory) {
+		return sqlSessionFatory.openSession();
 	}
-}
+	
+    @Bean
+    public PlatformTransactionManager txManager(DataSource datasource) {
+        return new DataSourceTransactionManager(datasource);
+    }
+}	

@@ -3,6 +3,8 @@ package com.ese.config.spring;
 
 import java.util.List;
 
+import javax.servlet.jsp.tagext.ValidationMessage;
+
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -10,6 +12,8 @@ import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.Validator;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.context.request.WebRequestInterceptor;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.HandlerMethodReturnValueHandler;
@@ -27,10 +31,11 @@ import org.springframework.web.servlet.view.JstlView;
 
 import com.ese.config.annotation.impl.SessionAttributeProcessor;
 import com.ese.config.interceptor.CommonInterceptor;
+import com.ese.config.spring.custom.CustomArgumentResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages="com.ese.demo", useDefaultFilters=false, includeFilters={@Filter(Controller.class)})
+@ComponentScan(basePackages="com.ese", useDefaultFilters=false, includeFilters={@Filter(Controller.class)})
 public class WebAppConfig  extends WebMvcConfigurerAdapter{
 	
 	private static final String VIEW_RESOLVER_PREFIX = "/WEB-INF/jsp/";
@@ -63,8 +68,9 @@ public class WebAppConfig  extends WebMvcConfigurerAdapter{
 	 */
 	@Override
 	public void addViewControllers(final ViewControllerRegistry registry) {
-		registry.addViewController("/test.do").setViewName("home");
-		registry.addViewController("/insert.do").setViewName("regedit");
+		registry.addViewController("/").setViewName("login/login");
+		registry.addViewController("/login.do").setViewName("login/login");
+		registry.addViewController("/socket.do").setViewName("main/socket");
 	}
 	
 	/**
@@ -139,11 +145,31 @@ public class WebAppConfig  extends WebMvcConfigurerAdapter{
 		
 		ResourceBundleMessageSource messageSource;
 		messageSource = new ResourceBundleMessageSource();
-		messageSource.setBasename("demo/messages/message");
+		messageSource.setBasename("dwg/messages/message");
 		messageSource.setUseCodeAsDefaultMessage(true);
 		messageSource.setDefaultEncoding("UTF-8");
 		
 		return messageSource;
+	}
+	
+	/**
+	 * injection messageSource to Validator
+	 *
+	 * @author GOEDOKID
+	 * @since 2015. 3. 12. 
+	 * @param 
+	 * @return
+	 */
+	@Bean
+	public LocalValidatorFactoryBean validator() {
+		LocalValidatorFactoryBean validator= new LocalValidatorFactoryBean();
+		validator.setValidationMessageSource(messageSource());
+		return validator;
+	}
+	
+	@Override
+	public Validator getValidator() {
+		return validator();
 	}
 	
 	/**
@@ -153,10 +179,16 @@ public class WebAppConfig  extends WebMvcConfigurerAdapter{
 	public SessionAttributeProcessor sessionAttributeProcessor() {
 		return new SessionAttributeProcessor();
 	}
+
+	@Bean
+	public HandlerMethodArgumentResolver customArgumentResolver() {
+		return new CustomArgumentResolver();
+	}
 	
 	@Override
 	public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
 		argumentResolvers.add(sessionAttributeProcessor());
+		argumentResolvers.add(customArgumentResolver());
 	}
 	
 	@Override
